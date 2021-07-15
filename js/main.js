@@ -109,44 +109,48 @@ formu.onsubmit = (e) => {
   const selector = document.getElementById("selector-datos");
   const datosInput = document.getElementById("valor");
   const descripcionInput = document.getElementById("descripcion");
-
-  if (selector.value == "ing") {
-    ingresos += parseInt(datosInput.value);
-    listadoIngresosArr.push({
-      key: k,
-      add: `<li class="elemento-listado">
+  let cond = false;
+  if (isNaN(datosInput.value)) {
+    alert("Debe ingresar un valor numérico");
+  } else {
+    if (selector.value == "ing") {
+      ingresos += parseInt(datosInput.value);
+      listadoIngresosArr.push({
+        key: k,
+        add: `<li class="elemento-listado">
                 <span>${descripcionInput.value}</span>
                 <span>${formatter.format(parseInt(datosInput.value))}</span>
                 <button class="delete-btn" onclick="deleteIngresos(${k})" value="${k}">
                     X
                 </button>
              </li>`,
-      valor: datosInput.value,
-    });
-    k++;
-  } else if (selector.value == "egr") {
-    egresos += parseInt(datosInput.value);
-    listadoEgresosArr.push({
-      key: l,
-      add: `<li class="elemento-listado">
+        valor: datosInput.value,
+      });
+      k++;
+    } else if (selector.value == "egr") {
+      egresos += parseInt(datosInput.value);
+      listadoEgresosArr.push({
+        key: l,
+        add: `<li class="elemento-listado">
                 <span>${descripcionInput.value}</span>
                 <span>${formatter.format(parseInt(datosInput.value))}</span>
                 <button class="delete-btn" onclick="deleteEgresos(${l})" value="${l}">
                     X
                 </button>
              </li>`,
-      valor: datosInput.value,
-    });
-    l++;
-  }
-  fillInfo();
-  selector.value = "def";
-  datosInput.value = "";
-  descripcionInput.value = "";
+        valor: datosInput.value,
+      });
+      l++;
+    }
+    fillInfo();
+    selector.value = "def";
+    datosInput.value = "";
+    descripcionInput.value = "";
 
-  listadoIngresos.innerHTML = fillArrayIng();
-  listadoEgresos.innerHTML = fillArrayEgr();
-  saveLocalData();
+    listadoIngresos.innerHTML = fillArrayIng();
+    listadoEgresos.innerHTML = fillArrayEgr();
+    saveLocalData();
+  }
 };
 
 const deleteEgresos = (i) => {
