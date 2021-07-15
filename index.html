@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presupuestos</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="informacion">
+        <h3>Presupuesto disponible: </h3>
+        <p id="presupuesto-disponible">$ 0 </p>
+        <div class="cajas-head">
+            <h4 id="ingresos-title-info"> Ingresos: <span id="ingresos-head"> 0 </span> </h4>
+            <h4 id="egresos-title-info"> Egresos: <span id="egresos-head"> 0 </span> </h4>
+        </div>
+    </div>
+    <div class="agregar-datos">
+        <form id="formulario-datos">
+            <select name="" id="selector-datos">
+                <option value="def">Seleccione...</option>
+                <option value="ing"> Ingresos</option>
+                <option value="egr"> Egresos</option>
+            </select>
+            <label for="">Descripción <input type="text" id="descripcion"></label>
+
+            <label for=""> Valor <input type="text" id="valor"> </label>
+            <input type="submit" value="Agregar">
+        </form>
+    </div>
+    <div class="menu">
+        <button onclick="deleteLocalData()" id="borrar-datos"> Limpiar tablas </button>
+    </div>
+    <div class="mostrar">
+        <div class="mostrar-listado">
+            <h3> Ingresos </h3>
+            <li id="encabezado-ingresos">
+                <span>Descripción</span>
+                <span>Valor</span>
+                <span>Acción</span>
+            </li>
+            <div>
+                <ul id="listado-ingresos" class="ingresos-listado">
+
+                </ul>
+            </div>
+        </div>
+        <div class="mostrar-listado-egresos">
+            <h3> Egresos</h3>
+            <li id="encabezado-ingresos">
+                <span>Descripción</span>
+                <span>Valor</span>
+                <span>Acción</span>
+            </li>
+            <div class="egresos-listado">
+
+                <ul id="listado-egresos">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
